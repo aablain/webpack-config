@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WoahGIF from "../images/giphy-2.gif";
 
 const elvenShieldRecipe = {
   leatherStrips: 2,
@@ -32,7 +33,14 @@ export const Recipes = () => {
         Gauntlets
       </button>
 
+      <img src={WoahGIF} style={{ width: "50px" }} />
+
       <div>{plans ? plans : null}</div>
+
+      <ul>
+        <li>Option 1</li>
+        <li>Option 2</li>
+      </ul>
     </div>
   );
 };

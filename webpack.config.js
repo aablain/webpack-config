@@ -16,12 +16,30 @@ module.exports = {
     hot: true,
   },
 
+  output: {
+    assetModuleFilename: "images/[hash][ext][query]",
+  },
+
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 15 * 1024,
+          },
+        },
+      },
+      {
         test: /\.s?css$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: "",
+            },
+          },
           "css-loader",
           "postcss-loader",
           "sass-loader",
